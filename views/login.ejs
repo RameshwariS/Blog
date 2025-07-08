@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('./partials/head') %>
+    <title>Homepage</title>
+</head>
+<body>
+      <%- include('./partials/nav') %>
+    <div class="container" style="max-width:400px;margin:3rem auto;">
+      <div class="card">
+        <h2 style="text-align:center;">Login</h2>
+        <form action="/user/login" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name ="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name ="password">
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <% if (locals.error) { %>
+          <p class="alert alert-danger" role="alert" style="color: #fff; background: var(--primary); border-radius: var(--radius); margin-top:1rem; text-align:center;">Incorrect password or email</p>
+        <% } %>
+      </div>
+    </div>
+    <%- include('./partials/script') %>
+</body>
+</html>
+
+

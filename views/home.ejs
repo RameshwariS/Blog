@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Homepage</title>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+    <div class="hero">
+        <img class="hero-illustration" src="/the-internet-svgrepo-com.svg" alt="Blogging Illustration" loading="lazy">
+        <h1>Welcome to Blogify!</h1>
+        <p>Share your stories, connect with others, and inspire the world. Your voice matters—start your blogging journey today!</p>
+        <a href="/blog/add-new" class="cta-btn">Start Writing</a>
+    </div>
+    <div class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <div class="feature-title">Write</div>
+            <div class="feature-desc">Create beautiful blogs with images and formatting. Express yourself freely and creatively.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <div class="feature-title">Connect</div>
+            <div class="feature-desc">Engage with a vibrant community. Comment, like, and follow your favorite writers.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <div class="feature-title">Inspire</div>
+            <div class="feature-desc">Share your knowledge and stories to inspire others and make an impact.</div>
+        </div>
+    </div>
+    <div class="testimonial">
+        "Blogify has given me a platform to share my thoughts and connect with amazing people. It's simple, beautiful, and inspiring!"
+        <span class="testimonial-author">— Happy Blogger</span>
+    </div>
+    <div class="container">
+        <h1>All Blogs</h1>
+        <% if (locals.blogs) { %>
+            <div class="blogs-fadein blogs-grid">
+                <% blogs.forEach(blog=> { %>
+                    <div class="card">
+                        <img src="<%= blog.coverImage %>" class="card-img-top" alt="Blog Cover">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= blog.title %></h5>
+                            <a href="/blog/<%= blog._id %>" class="btn">Read More</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+    <%- include('./partials/script') %>
+</body>
+
+</html>

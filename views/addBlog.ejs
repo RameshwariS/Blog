@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Add New Blog</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    <div class="container" style="max-width:600px;margin:3rem auto;">
+      <div class="card">
+        <h2 style="text-align:center;">Add New Blog</h2>
+        <form action="/blog" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              name="title"
+            />
+            <div id="emailHelp" class="form-text">Add title to your blog.</div>
+          </div>
+
+          <label for="floatingTextarea">Body</label>
+          <div class="form-floating mb-3">
+            <textarea
+              class="form-control"
+              placeholder="Add your content"
+              id="floatingTextarea"
+              name="body"
+              style="min-height:120px;"
+            ></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="coverImg" class="form-label">Cover Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="coverImg"
+              aria-describedby="emailHelp"
+              name="coverImg"
+            />
+            <div id="emailHelp" class="form-text">Add Image to your blog.</div>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+    <%- include('./partials/script') %>
+  </body>
+</html>

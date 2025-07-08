@@ -1,0 +1,6 @@
+partials is something  we use when there are lots of repeating 
+components like navbar present on every page so 
+we include it in partials
+
+dev dendencies are those which we only require in production not in deployment
+just like nodemon

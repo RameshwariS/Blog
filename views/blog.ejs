@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Homepage</title>
+  </head>
+
+  <body>
+    <%- include('./partials/nav') %>
+    <div class="container">
+      <div class="card">
+        <h1><%= blog.title %></h1>
+        <img src="<%= blog.coverImage %>" class="blog-cover-img" alt="Blog Cover" />
+        <pre class="mt-2" style="white-space:pre-wrap;font-size:1.1rem;"> <%= blog.body %></pre>
+        <div style="display:flex;align-items:center;gap:1rem;margin-top:1.5rem;">
+          <img src="<%= blog.createdBy.profileImg %>" alt="" class="profile-img" />
+          <span style="font-weight:500;"><%= blog.createdBy.fullName %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <h2>Comments (<%= comments.length %>)</h2>
+      <% if (locals.comments) { %>
+        <div class="container mt-3" style="background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem;">
+            <% comments.forEach(comment => { %>
+             <div class="comment">
+                 <img src="<%= comment.createdBy.profileImg %>" alt="" class="profile-img" />
+                 <div>
+                   <span style="font-weight:500;"><%= comment.createdBy.fullName %></span> <br>
+                   <pre style="margin:0;white-space:pre-wrap;"><%= comment.content %></pre>
+                 </div>
+             </div>
+            <% }) %>
+        </div>
+      <% } %>
+      <% if (locals.user) { %>
+        <form action="/blog/comment/<%=blog._id%>" method="post">
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <input
+              type="text"
+              class="form-control"
+              id="comment"
+              name="content"
+              placeholder="Enter your comment"
+           /> 
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      <% } %>
+    </div>
+    <%- include('./partials/script') %>
+  </body>
+</html>
