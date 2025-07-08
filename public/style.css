@@ -151,12 +151,12 @@ input:focus, textarea:focus {
 .hero {
   background: var(--hero-bg);
   color: #fff;
-  padding: 4.5rem 2rem 3.5rem 2rem;
+  padding: 3rem 1rem 2.5rem 1rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin: 2rem auto 2.5rem auto;
   text-align: center;
-  max-width: 900px;
+  max-width: 100%;
   position: relative;
   overflow: hidden;
   animation: heroFadeIn 1.2s cubic-bezier(.4,0,.2,1);
@@ -166,10 +166,20 @@ input:focus, textarea:focus {
   text-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 .hero h1 {
-  font-size: 3.2rem;
+  font-size: 2rem;
   font-weight: 900;
   margin-bottom: 0.5rem;
   letter-spacing: -1px;
+}
+@media (min-width: 600px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 900px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
 }
 .hero p {
   font-size: 1.35rem;
@@ -226,18 +236,32 @@ input:focus, textarea:focus {
 
 /* Blogger-style hero illustration */
 .hero-illustration {
-  max-width: 320px;
+  max-width: 220px;
   width: 100%;
   margin: 0 auto 1.5rem auto;
   display: block;
+}
+@media (min-width: 600px) {
+  .hero-illustration {
+    max-width: 320px;
+  }
 }
 
 .features-section {
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
   margin: 2.5rem auto 2rem auto;
   max-width: 900px;
+  flex-direction: column;
+  padding: 0 0.5rem;
+}
+@media (min-width: 700px) {
+  .features-section {
+    flex-direction: row;
+    gap: 2.5rem;
+    padding: 0;
+  }
 }
 .feature-card {
   background: #fff;
@@ -246,8 +270,15 @@ input:focus, textarea:focus {
   padding: 2rem 1.2rem 1.5rem 1.2rem;
   text-align: center;
   flex: 1 1 0;
-  min-width: 200px;
+  min-width: 0;
+  width: 100%;
+  margin: 0 auto;
   transition: transform 0.2s, box-shadow 0.2s;
+}
+@media (min-width: 700px) {
+  .feature-card {
+    width: auto;
+  }
 }
 .feature-card:hover {
   transform: translateY(-6px) scale(1.04);
@@ -274,23 +305,35 @@ input:focus, textarea:focus {
   box-shadow: var(--shadow);
   max-width: 700px;
   margin: 2.5rem auto 2rem auto;
-  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  padding: 1.2rem 1rem 1rem 1rem;
   text-align: center;
   font-style: italic;
   color: var(--primary);
   position: relative;
+  font-size: 1rem;
+}
+@media (min-width: 600px) {
+  .testimonial {
+    padding: 2rem 2.5rem 1.5rem 2.5rem;
+    font-size: 1.15rem;
+  }
 }
 .testimonial::before {
   content: '“';
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--accent);
   position: absolute;
   left: 1.2rem;
   top: 0.5rem;
 }
+@media (min-width: 600px) {
+  .testimonial::before, .testimonial::after {
+    font-size: 3rem;
+  }
+}
 .testimonial::after {
   content: '”';
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--accent);
   position: absolute;
   right: 1.2rem;
@@ -322,5 +365,71 @@ input:focus, textarea:focus {
 @media (min-width: 700px) {
   .blogs-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1100px) {
+  .blogs-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.card {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* Responsive container */
+.container {
+  max-width: 98vw;
+  padding: 1rem;
+}
+@media (min-width: 700px) {
+  .container {
+    max-width: 800px;
+    padding: 2rem;
+  }
+}
+
+/* Responsive text sizes */
+h1 {
+  font-size: 2rem;
+}
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 900px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Responsive nav */
+nav {
+  flex-wrap: wrap;
+  padding: 1rem 0.5rem;
+}
+@media (min-width: 700px) {
+  nav {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Responsive blog images */
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive profile images */
+img.profile-img {
+  width: 60px;
+  height: 60px;
+}
+@media (min-width: 700px) {
+  img.profile-img {
+    width: 100px;
+    height: 100px;
   }
 } 
